@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color palette */
+  --color-bg: #0a0a0f;
+  --color-bg-alt: #12121a;
+  --color-bg-section: #1a1a2e;
+  --color-cream: #f5f0e8;
+  --color-dusty-rose: #c9a0a0;
+  --color-sage: #7a9e7e;
+  --color-gold: #d4af6a;
+  /* Fonts */
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Lora", serif;
+  --font-script: "Dancing Script", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: linear-gradient(180deg, #0a0a0f 0%, #12121a 100%);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Lily bloom keyframes */
+@keyframes lily-bloom {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+@keyframes lily-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0.15;
+  }
+}
+
+@keyframes ring-rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes equalizer-bar {
+  0%, 100% { height: 6px; }
+  50% { height: 18px; }
+}
+
+/* Heartbeat — untuk "With all my love" (1.2s beat + 0.8s hold per iteration, 3 iterations) */
+@keyframes heartbeat {
+  0%   { transform: scale(1); }
+  14%  { transform: scale(1.08); }
+  28%  { transform: scale(1); }
+  42%  { transform: scale(1.05); }
+  56%  { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+/* Line grow dari kiri ke kanan */
+@keyframes line-grow-left {
+  from { width: 0; opacity: 0; }
+  to   { width: 60px; opacity: 1; }
+}
+
+/* Line grow dari kanan ke kiri */
+@keyframes line-grow-right {
+  from { width: 0; opacity: 0; }
+  to   { width: 60px; opacity: 1; }
+}
+
+/* Floating petals on pull quote hover */
+@keyframes petal-float {
+  0% {
+    opacity: 0.8;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.8);
+  }
+}
+
+/* Glowing lily on hover — only for devices that support hover */
+@media (hover: hover) {
+  .lily-hover-glow svg {
+    transition: filter 0.6s ease;
+  }
+  .lily-hover-glow:hover svg {
+    filter: drop-shadow(0 0 15px rgba(201, 160, 160, 0.4));
+  }
+}
+
+/* Letter paper / card feel — nuansa surat cinta */
+.letter-paper {
+  background: linear-gradient(135deg, rgba(245, 240, 232, 0.03) 0%, rgba(245, 240, 232, 0.02) 100%);
+  border-radius: 1rem;
+  padding: 1.5rem 1.25rem;
+  position: relative;
+  border-left: 3px solid rgba(201, 160, 160, 0.35);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+@media (min-width: 640px) {
+  .letter-paper {
+    padding: 2rem 2.5rem;
+    border-left-width: 4px;
+  }
+}
+
+/* Drop cap — huruf pertama besar seperti surat klasik */
+.drop-cap::first-letter {
+  float: left;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-right: 0.35rem;
+  margin-top: -0.1em;
+  color: rgba(201, 160, 160, 0.95);
+}
+
+/* Soft glow frame untuk sapaan */
+.greeting-glow {
+  position: relative;
+  padding: 1.75rem 1.25rem;
+  border-radius: 1rem;
+  background: radial-gradient(ellipse at center, rgba(201, 160, 160, 0.06) 0%, transparent 70%);
+  border: 1px solid rgba(201, 160, 160, 0.15);
+}
+@media (min-width: 640px) {
+  .greeting-glow {
+    padding: 2rem 2.5rem;
+  }
+}
+
+/* Polaroid-style card untuk momen */
+.polaroid-card {
+  background: linear-gradient(180deg, rgba(250, 248, 245, 0.08) 0%, rgba(245, 240, 232, 0.05) 100%);
+  border: 1px solid rgba(201, 160, 160, 0.25);
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(201, 160, 160, 0.08);
+  position: relative;
+  overflow: visible;
+}
+.polaroid-card::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 12px;
+  background: linear-gradient(90deg, transparent, rgba(201, 160, 160, 0.4), transparent);
+  border-radius: 2px;
+  filter: blur(1px);
+}
+
+/* Hero — soft glow di belakang judul */
+.hero-title-wrap {
+  position: relative;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  background: radial-gradient(ellipse 80% 50% at center, rgba(201, 160, 160, 0.08) 0%, transparent 70%);
+}
+.hero-title-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 160, 160, 0.4), transparent);
+}
+
+/* Ornamental quote marks — kutipan besar di pull quote */
+.ornamental-quote-open,
+.ornamental-quote-close {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(201, 160, 160, 0.25);
+  user-select: none;
+}
+.ornamental-quote-open { margin-right: 0.25rem; }
+.ornamental-quote-close { margin-left: 0.25rem; }
+
+/* Closing — frame romantis untuk "With all my love" */
+.closing-signature {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem 1.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+  background: radial-gradient(ellipse at center, rgba(201, 160, 160, 0.06) 0%, transparent 70%);
+  border: 1px solid rgba(201, 160, 160, 0.2);
+}
+
+/* Footer — garis dekoratif & flourish */
+.footer-flourish {
+  position: relative;
+  padding-top: 1rem;
+}
+.footer-flourish::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 160, 160, 0.35), transparent);
+}
+
+/* Stardust / twinkle — titik cahaya halus di background */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+.stardust-dot {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(245, 240, 232, 0.4);
+  animation: twinkle 4s ease-in-out infinite;
+}
+.stardust-dot:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+.stardust-dot:nth-child(2) { top: 25%; right: 15%; animation-delay: 1s; }
+.stardust-dot:nth-child(3) { top: 50%; left: 8%; animation-delay: 2s; }
+.stardust-dot:nth-child(4) { top: 60%; right: 10%; animation-delay: 0.5s; }
+.stardust-dot:nth-child(5) { top: 80%; left: 20%; animation-delay: 1.5s; }
+.stardust-dot:nth-child(6) { top: 35%; right: 25%; animation-delay: 2.5s; }
+.stardust-dot:nth-child(7) { top: 70%; left: 15%; animation-delay: 3s; }
+.stardust-dot:nth-child(8) { top: 20%; left: 30%; animation-delay: 1s; }
