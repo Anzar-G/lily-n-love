@@ -50,96 +50,96 @@ export function LoveLetter() {
         <LilyDivider />
         {/* Isi surat — nuansa kertas surat dengan border kiri & drop cap */}
         <div className="letter-paper">
-        <ScrollReveal variant="fade-up" delay={0}>
-          <p className="drop-cap text-[#f5f0e8]/90 text-[0.9375rem] sm:text-[1rem] md:text-[1.1rem] leading-[1.9] mb-6 sm:mb-10" style={{ fontFamily: '"Lora", serif' }}>
-            Kita kenal belum sampai dua bulan, namun entah kenapa aku selalu merasa kita sudah sangat dekat — seolah kita sudah saling kenal jauh sebelum ini. Mungkin ini hanya perasaanku saja, tapi jujur, aku benar-benar sayang dan suka rindu kamu. Setiap kali kamu lagi sibuk atau kita nggak bisa ngobrol lama, aku kangen. Aku bersyukur bisa ada di hidupmu, walau baru sebentar.
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={150}>
-          <p className="text-[#f5f0e8]/90 text-[0.9375rem] sm:text-[1rem] md:text-[1.1rem] leading-[1.9] mb-6 sm:mb-10" style={{ fontFamily: '"Lora", serif' }}>
-            Dari hal-hal kecil yang kita jalani bersama — main bareng, telenan malam-malam sampai mata berat, aku yang dengerin cerita dan curhatmu, bahkan saat kamu sedih pun aku pengen selalu ada di sisi kamu — aku sadar, mungkin inilah ketenangan dan kehangatan yang selama ini aku cari. Bersamamu, aku merasa rumah. Dan aku pengen kamu juga ngerasa aman dan tenang sama aku.
-          </p>
-        </ScrollReveal>
+          <ScrollReveal variant="fade-up" delay={0}>
+            <p className="drop-cap text-[#f5f0e8]/90 text-[0.9375rem] sm:text-[1rem] md:text-[1.1rem] leading-[1.9] mb-6 sm:mb-10" style={{ fontFamily: '"Lora", serif' }}>
+              Kita kenal belum sampai dua bulan, namun entah kenapa aku selalu merasa kita sudah sangat dekat — seolah kita sudah saling kenal jauh sebelum ini. Mungkin ini hanya perasaanku saja, tapi jujur, aku benar-benar sayang dan suka rindu kamu. Setiap kali kamu lagi sibuk atau kita nggak bisa ngobrol lama, aku kangen. Aku bersyukur bisa ada di hidupmu, walau baru sebentar.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={150}>
+            <p className="text-[#f5f0e8]/90 text-[0.9375rem] sm:text-[1rem] md:text-[1.1rem] leading-[1.9] mb-6 sm:mb-10" style={{ fontFamily: '"Lora", serif' }}>
+              Dari hal-hal kecil yang kita jalani bersama — main bareng, telfonan malam-malam sampai mata berat, aku yang dengerin cerita dan curhatmu, bahkan saat kamu sedih pun aku pengen selalu ada di sisi kamu — aku sadar, mungkin inilah ketenangan dan kehangatan yang selama ini aku cari. Bersamamu, aku merasa rumah. Dan aku pengen kamu juga ngerasa aman dan tenang sama aku.
+            </p>
+          </ScrollReveal>
 
-        {/* Pull quote — dramatic reveal */}
-        <div ref={quoteSectionRef} className="flex flex-col items-center my-8 md:my-12">
-          {/* Line top */}
-          <div
-            className="h-px bg-[#c9a0a0] transition-all duration-[600ms] ease-out"
-            style={{
-              width: revealState === 'line-top' || revealState === 'text' || revealState === 'line-bottom' || revealState === 'complete' ? 60 : 0,
-              opacity: revealState === 'line-top' || revealState === 'text' || revealState === 'line-bottom' || revealState === 'complete' ? 1 : 0,
-            }}
-          />
-          {/* Quote text */}
-          <div
-            className="relative py-6 px-4 text-center transition-[background-color,text-shadow] duration-400 rounded-lg"
-            style={{
-              background: isPullQuoteActive ? 'rgba(201, 160, 160, 0.08)' : 'transparent',
-              textShadow: isPullQuoteActive ? '0 0 20px rgba(201, 160, 160, 0.3)' : 'none',
-            }}
-            onMouseEnter={handlePullQuoteEnter}
-            onMouseLeave={handlePullQuoteLeave}
-            onTouchStart={() => handlePullQuoteEnter()}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                handlePullQuoteEnter()
-              }
-            }}
-            aria-label="Highlight quote"
-          >
-            {(revealState === 'text' || revealState === 'line-bottom' || revealState === 'complete') && (
-              <ScrollReveal variant="scale-up" delay={0}>
-                <p
-                  className="text-[#c9a0a0] text-base sm:text-xl md:text-2xl leading-relaxed flex items-center justify-center flex-wrap gap-0"
-                  style={{ fontFamily: '"Dancing Script", cursive' }}
-                >
-                  <span className="ornamental-quote-open">"</span>
-                  Mungkin inilah ketenangan dan kehangatan yang selama ini aku cari.
-                  <span className="ornamental-quote-close">"</span>
-                </p>
-              </ScrollReveal>
-            )}
-            {/* Floating petals on hover/tap */}
-            {showFloatingPetals && (
-              <>
-                <div
-                  className="absolute w-3 h-4 rounded-full bg-[rgba(201,160,160,0.25)] pointer-events-none"
-                  style={{
-                    left: '20%',
-                    top: '10%',
-                    animation: 'petal-float 2s ease-out forwards',
-                  }}
-                />
-                <div
-                  className="absolute w-2 h-3 rounded-full bg-[rgba(245,240,232,0.2)] pointer-events-none"
-                  style={{
-                    right: '25%',
-                    bottom: '20%',
-                    animation: 'petal-float 2s ease-out 0.3s forwards',
-                  }}
-                />
-              </>
-            )}
+          {/* Pull quote — dramatic reveal */}
+          <div ref={quoteSectionRef} className="flex flex-col items-center my-8 md:my-12">
+            {/* Line top */}
+            <div
+              className="h-px bg-[#c9a0a0] transition-all duration-[600ms] ease-out"
+              style={{
+                width: revealState === 'line-top' || revealState === 'text' || revealState === 'line-bottom' || revealState === 'complete' ? 60 : 0,
+                opacity: revealState === 'line-top' || revealState === 'text' || revealState === 'line-bottom' || revealState === 'complete' ? 1 : 0,
+              }}
+            />
+            {/* Quote text */}
+            <div
+              className="relative py-6 px-4 text-center transition-[background-color,text-shadow] duration-400 rounded-lg"
+              style={{
+                background: isPullQuoteActive ? 'rgba(201, 160, 160, 0.08)' : 'transparent',
+                textShadow: isPullQuoteActive ? '0 0 20px rgba(201, 160, 160, 0.3)' : 'none',
+              }}
+              onMouseEnter={handlePullQuoteEnter}
+              onMouseLeave={handlePullQuoteLeave}
+              onTouchStart={() => handlePullQuoteEnter()}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  handlePullQuoteEnter()
+                }
+              }}
+              aria-label="Highlight quote"
+            >
+              {(revealState === 'text' || revealState === 'line-bottom' || revealState === 'complete') && (
+                <ScrollReveal variant="scale-up" delay={0}>
+                  <p
+                    className="text-[#c9a0a0] text-base sm:text-xl md:text-2xl leading-relaxed flex items-center justify-center flex-wrap gap-0"
+                    style={{ fontFamily: '"Dancing Script", cursive' }}
+                  >
+                    <span className="ornamental-quote-open">"</span>
+                    Mungkin inilah ketenangan dan kehangatan yang selama ini aku cari.
+                    <span className="ornamental-quote-close">"</span>
+                  </p>
+                </ScrollReveal>
+              )}
+              {/* Floating petals on hover/tap */}
+              {showFloatingPetals && (
+                <>
+                  <div
+                    className="absolute w-3 h-4 rounded-full bg-[rgba(201,160,160,0.25)] pointer-events-none"
+                    style={{
+                      left: '20%',
+                      top: '10%',
+                      animation: 'petal-float 2s ease-out forwards',
+                    }}
+                  />
+                  <div
+                    className="absolute w-2 h-3 rounded-full bg-[rgba(245,240,232,0.2)] pointer-events-none"
+                    style={{
+                      right: '25%',
+                      bottom: '20%',
+                      animation: 'petal-float 2s ease-out 0.3s forwards',
+                    }}
+                  />
+                </>
+              )}
+            </div>
+            {/* Line bottom — grows from right to left */}
+            <div
+              className="h-px bg-[#c9a0a0] transition-all duration-[600ms] ease-out ml-auto"
+              style={{
+                width: revealState === 'complete' ? 60 : 0,
+                opacity: revealState === 'complete' ? 1 : 0,
+              }}
+            />
           </div>
-          {/* Line bottom — grows from right to left */}
-          <div
-            className="h-px bg-[#c9a0a0] transition-all duration-[600ms] ease-out ml-auto"
-            style={{
-              width: revealState === 'complete' ? 60 : 0,
-              opacity: revealState === 'complete' ? 1 : 0,
-            }}
-          />
-        </div>
 
-        <ScrollReveal variant="fade-up" delay={0}>
-          <p className="text-[#f5f0e8]/90 text-[0.9375rem] sm:text-[1rem] md:text-[1.1rem] leading-[1.9] mb-0" style={{ fontFamily: '"Lora", serif' }}>
-            Dan aku ingin kita terus seperti ini — saling percaya, saling dukung, saling bikin tertawa. Aku ingin hubungan ini bertahan, tumbuh, dan suatu hari nanti membawa kita sampai ke altar bersama. Kamu adalah orang yang aku mau perjuangkan. Thank you for being you, sayang.
-          </p>
-        </ScrollReveal>
+          <ScrollReveal variant="fade-up" delay={0}>
+            <p className="text-[#f5f0e8]/90 text-[0.9375rem] sm:text-[1rem] md:text-[1.1rem] leading-[1.9] mb-0" style={{ fontFamily: '"Lora", serif' }}>
+              Dan aku ingin kita terus seperti ini — saling percaya, saling dukung, saling bikin tertawa. Aku ingin hubungan ini bertahan, tumbuh, dan suatu hari nanti membawa kita sampai ke altar bersama. Kamu adalah orang yang aku mau perjuangkan. Thank you for being you, sayang.
+            </p>
+          </ScrollReveal>
         </div>
       </div>
     </section>
