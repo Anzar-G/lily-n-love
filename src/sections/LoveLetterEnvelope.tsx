@@ -54,7 +54,7 @@ export function LoveLetterEnvelope({ show = false }: LoveLetterEnvelopeProps) {
                             <div className="letter-header">
                                 <div className="header-line"></div>
                                 <span className="header-heart">
-                                    <LilyIcon className="w-6 h-8 text-dusty-rose" />
+                                    <img src="/lily3.svg" alt="Lily" className="w-8 h-8 opacity-90" />
                                 </span>
                                 <div className="header-line"></div>
                             </div>
@@ -82,7 +82,7 @@ export function LoveLetterEnvelope({ show = false }: LoveLetterEnvelopeProps) {
                                 <div className="letter-signature">
                                     <span className="signature-text">With all my love,</span>
                                     <span className="signature-heart">
-                                        <LilyIcon className="w-8 h-10 text-dusty-rose" />
+                                        <img src="/lily3.svg" alt="Love" className="w-10 h-10 opacity-90" />
                                     </span>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@ export function LoveLetterEnvelope({ show = false }: LoveLetterEnvelopeProps) {
                             <div className="flap-inner"></div>
                         </div>
 
-                        {/* Wax Seal */}
+                        {/* Wax Seal - Using LilyIcon (SVG) for seal effect as usually seals are embossed/colorless */}
                         <div className={`envelope-seal ${isOpen ? 'seal-broken' : ''}`}>
                             <LilyIcon className="w-8 h-10 text-white/90 drop-shadow-md" />
                         </div>

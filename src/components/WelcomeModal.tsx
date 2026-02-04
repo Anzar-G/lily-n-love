@@ -9,7 +9,7 @@ interface WelcomeModalProps {
 export function WelcomeModal({ isVisible, onEnter }: WelcomeModalProps) {
     return (
         <div className={`welcome-overlay ${!isVisible ? 'hidden' : ''}`}>
-            {/* Floating Lily Petals Background */}
+            {/* Floating Lily Petals Background - Keep lightweight SVG component for performance */}
             <div className="welcome-petals">
                 {[...Array(6)].map((_, i) => (
                     <div key={i} className={`welcome-petal wp-${i + 1}`}>
@@ -18,18 +18,12 @@ export function WelcomeModal({ isVisible, onEnter }: WelcomeModalProps) {
                 ))}
             </div>
 
-            {/* Corner Lily Decorations */}
-            <div className="corner-lily corner-top-left">
-                <LilyIcon className="w-16 h-20 opacity-15" />
+            {/* Side Lily Decorations - Using lily2.png */}
+            <div className="side-lily side-left">
+                <img src="/lily.png" alt="" className="w-64 h-auto opacity-80" />
             </div>
-            <div className="corner-lily corner-top-right">
-                <LilyIcon className="w-16 h-20 opacity-15" />
-            </div>
-            <div className="corner-lily corner-bottom-left">
-                <LilyIcon className="w-12 h-16 opacity-10" />
-            </div>
-            <div className="corner-lily corner-bottom-right">
-                <LilyIcon className="w-12 h-16 opacity-10" />
+            <div className="side-lily side-right">
+                <img src="/lily.png" alt="" className="w-64 h-auto opacity-80" />
             </div>
 
             {/* Sparkle Particles */}
@@ -41,12 +35,16 @@ export function WelcomeModal({ isVisible, onEnter }: WelcomeModalProps) {
 
             {/* Main Card */}
             <div className="welcome-card">
-                {/* Lily Icon instead of heart */}
+                {/* Main Lily Decoration - Using lily1.png */}
                 <div className="welcome-lily-icon">
-                    <LilyIcon className="w-20 h-24" />
+                    <img
+                        src="/lily1.png"
+                        alt="Lily"
+                        className="w-32 h-auto opacity-100 drop-shadow-[0_0_15px_rgba(122,158,126,0.3)]"
+                    />
                 </div>
 
-                {/* Decorative Line with lily */}
+                {/* Decorative Line with small lily icon */}
                 <div className="welcome-line">
                     <div className="line-segment"></div>
                     <span className="line-lily">🌸</span>
